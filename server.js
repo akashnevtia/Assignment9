@@ -14,6 +14,10 @@ app.use(bodyParser.raw());
 
 //new quiz code
 
+app.get('/',(req, res)=>{
+    res.send("AWS lambda function available to test. http://161.35.14.40:3000/say?keyword=HelloWorld")
+})
+
 app.get('/say', (req,res) => {
     axios.get(`https://bgevcf9ikg.execute-api.us-east-2.amazonaws.com/prod/say?keyword=`+req.query.keyword)
     .then(result => {
